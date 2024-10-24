@@ -1,13 +1,7 @@
 import "./ModalWithForm.css";
 import close from "../../assets/close.png";
 
-function ModalWithForm({
-  children,
-  buttonText,
-  title,
-  activeModal,
-  handleCloseClick,
-}) {
+function ModalWithForm({ children, buttonText, title, activeModal, onClose }) {
   return (
     <div
       className={`modal ${activeModal === "add-garment" && "modal__opened"}`}
@@ -15,7 +9,7 @@ function ModalWithForm({
       <div className="modal__content">
         <div className="modal__header">
           <h2 className="modal__title">{title}</h2>
-          <button onClick={handleCloseClick} type="button" className="modal__close">
+          <button onClick={onClose} type="button" className="modal__close">
             <img src={close} alt="close" className="modal__image" />
           </button>
         </div>
