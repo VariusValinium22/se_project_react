@@ -21,10 +21,10 @@
   object-fit: cover;
   object-position: right top;
 }
-
+/* 
 .weather-card__image-container {
-    /*   position: relative;
-      display: inline-block; */
+      position: relative;
+      display: inline-block;
     }
     
 .weather-card__condition {
@@ -36,3 +36,4 @@
   font-size: 40px;
   font-weight: 700;
 }
+ */

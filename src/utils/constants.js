@@ -7,8 +7,8 @@ export const weatherOptions = [
 
   {
     day: true,
-    condition: "cloudy",
-    url: new URL("../assets/day/clearDay.png", import.meta.url).href,
+    condition: "clouds",
+    url: new URL("../assets/day/cloudyDay.png", import.meta.url).href,
   },
 
   {
@@ -25,8 +25,8 @@ export const weatherOptions = [
 
   {
     day: false,
-    condition: "cloudy",
-    url: new URL("../assets/day/clearNight.png", import.meta.url).href,
+    condition: "clouds",
+    url: new URL("../assets/day/cloudyNight.png", import.meta.url).href,
   },
 
   {
@@ -89,8 +89,11 @@ export const handleRequest = (res) => {
 };
 
 export const coordinates = {
-  latitude: 34.052235,
-  longitude: -118.243683,
+  /* latitude: 34.052235,
+  longitude: -118.243683, */
+  latitude: 29.407780,
+  longitude: -98.502582,
+
 };
 
 export const APIkey = "ad5625a093de3d7e472d2d1fd3d0e964";
