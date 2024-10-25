@@ -3,13 +3,14 @@ import { defaultWeatherOptions, weatherOptions } from "../../utils/constants";
 
 function WeatherCard({ weatherData }) {
   if (!weatherData || !weatherData.condition) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
-  
-    let normalizedCondition = "";
+
+  let normalizedCondition = "";
 
   if (weatherData && typeof weatherData.condition === "string") {
     normalizedCondition = weatherData.condition.toLowerCase();
+    console.log(weatherData.condition);
   }
 
   const filteredOptions = weatherOptions.filter((option) => {
@@ -19,16 +20,16 @@ function WeatherCard({ weatherData }) {
     );
   });
 
+  console.log("Filtered options: ", filteredOptions);
+
   let weatherOption;
   let showCondition = false;
 
   if (filteredOptions.length === 0) {
-    console.log(weatherData.isDay);
     weatherOption = defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
     showCondition = true;
   } else {
     weatherOption = filteredOptions[0];
-    console.log(weatherData.isDay);
   }
 
   return (

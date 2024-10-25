@@ -27,3 +27,38 @@
 .header__username {
     margin: 0;
 }
+
+@media screen and (max-width: 840px) {
+    .header {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .header__add-clothes-btn {
+        margin: 10px 0 15px 0;
+        font-size: 35px;
+    }
+
+    .header__logo {
+        margin-right: 0;
+        height: 100px;
+        width: 200px;
+    }
+
+    .header__date-and-location {
+        font-size: 25px;
+        padding-bottom: 15px;
+    }
+
+    .header__user-container {
+
+    }
+    
+    .header__avatar {
+        width: 60px;
+    }
+
+    .header__username {
+        font-size: 25px;
+    }
+}

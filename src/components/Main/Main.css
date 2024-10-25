@@ -1,6 +1,7 @@
 .cards__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     list-style-type: none;
     gap: 21px;
     padding: 0;
@@ -12,3 +13,9 @@
     font-weight: 700;
 }
 
+@media screen and (max-width: 840px) {
+    .cards__text {
+        display: flex;
+        justify-content: center;
+    }
+}
