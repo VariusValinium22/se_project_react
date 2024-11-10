@@ -10,7 +10,6 @@ function WeatherCard({ weatherData }) {
 
   if (weatherData && typeof weatherData.condition === "string") {
     normalizedCondition = weatherData.condition.toLowerCase();
-    console.log(weatherData.condition);
   }
 
   const filteredOptions = weatherOptions.filter((option) => {
@@ -19,8 +18,6 @@ function WeatherCard({ weatherData }) {
       option.condition === normalizedCondition
     );
   });
-
-  console.log("Filtered options: ", filteredOptions);
 
   let weatherOption;
   let showCondition = false;

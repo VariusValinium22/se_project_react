@@ -102,11 +102,11 @@ export const coordinates = {
   /*   latitude: 68.2441,
   longitude: 13.7601, */
   /* Isla Navarino, Chile  */
-  /* latitude: -55.126163,
-  longitude: -67.597523, */
+  latitude: -55.126163,
+  longitude: -67.597523,
   /* Yakutsk, Russia */
-  latitude: 61.981701,
-  longitude: 129.80615,
+/*   latitude: 61.981701,
+  longitude: 129.80615, */
 };
 
 export const APIkey = "ad5625a093de3d7e472d2d1fd3d0e964";
