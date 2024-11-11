@@ -1,6 +1,6 @@
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
-import logo from "../../../src/assets/logo.svg";
+import logo from "../../../src/assets/logo.png";
 import avatar from "../../assets/avatar.png";
 
 function Header({ handleAddClick, weatherData }) {
