@@ -21,7 +21,7 @@ const isDay = ({ sunrise, sunset }, now) => {
 };
 
 const getWeatherType = (temperature) => {
-  if (temperature > 86) {
+  if (temperature >= 86) {
     return "hot";
   } else if (temperature >= 66 && temperature < 86) {
     return "warm";
@@ -30,5 +30,17 @@ const getWeatherType = (temperature) => {
   }
 };
 
-
-
+export const parseWeatherData = (data) => {
+  const main = data.main;
+  const temperature = main && main.temp;
+  const weather = {
+    temperature: {
+      F: Math.round(temperature),
+      C: Math.round(((temperature - 32) * 5) / 9),
+    },
+    type: getWeatherType(temperature),
+  };
+  console.log(weather.temperature.C)
+  console.log(weather.temperature.F)
+  return weather;
+};
