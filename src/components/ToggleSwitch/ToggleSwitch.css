@@ -25,7 +25,7 @@
 
 .switch__slider-F {
   /* top: 3px; */
-  /* left: 28px; */
+  left: 1px;
 }
 
 .switch__slider-C {
@@ -34,22 +34,22 @@
 }
 
 .switch__active {
-    font-size: 16px;
-    color: #f3f3f3;
+  font-size: 16px;
+  color: #f3f3f3;
 }
 
 .switch__temp-F {
-    position: absolute;
-    top: -15px;
-    left: 30px;
-    color: #f3f3f3;
+  position: absolute;
+  top: -10px;
+  left: 30px;
+  color: #f3f3f3;
 }
 
 .switch__temp-C {
-    position: absolute;
-    top: -15px;
-    left: 8px;
-    color: #f3f3f3;
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  color: #f3f3f3;
 }
 
 @media screen and (max-width: 960px) {

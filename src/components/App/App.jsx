@@ -9,7 +9,6 @@ import ItemModal from "../ItemModal/ItemModal";
 import Footer from "../Footer/Footer";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { currentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
-import { parseWeatherData } from "../../utils/weatherApi";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -19,7 +18,6 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [temp, setTemp] = useState(0);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   /* Event Handler Functions */
@@ -46,13 +44,13 @@ function App() {
     getWeather(coordinates, APIkey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
-        const temperature = parseWeatherData(data);
         setWeatherData(filteredData);
-        setTemp(temperature);
       })
       .catch(console.error);
   }, []);
-  
+
+  console.log(weatherData);
+
   return (
     <div className="page">
       <currentTemperatureUnitContext.Provider
@@ -62,12 +60,10 @@ function App() {
           <Header
             handleAddClick={handleAddClick}
             weatherData={weatherData}
-            temp={temp}
           />
           <Main
             weatherData={weatherData}
             handleCardClick={handleCardClick}
-            weatherTemp={temp}
           />
           <Footer />
         </div>
