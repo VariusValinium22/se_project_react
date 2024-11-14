@@ -1,0 +1,35 @@
+import React from "react";
+import { defaultClothingItems } from "../../utils/constants";
+import ItemCard from "../ItemCard/ItemCard";
+import "./ClothesSection.css";
+
+function ClothesSection( {handleAddClick} ) {
+  return (
+    <div className="clothes-section">
+      <div className="clothes__title-button">
+        <p className="clothes__title">Your items</p>
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="clothes__button"
+        >
+          + Add New
+        </button>
+      </div>
+      <ul className="main__items">
+        {defaultClothingItems.map((item) => {
+          return (
+            <ItemCard
+              key={item._id}
+              item={item}
+              //TODO : pass as prop to this ClothesSection component with other props
+              //onCardClick={handleCardClick}
+            />
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+export default ClothesSection;

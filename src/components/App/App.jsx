@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
@@ -6,6 +7,8 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
+import AddItemModal from "../AddItemModal/AddItemModal";
+import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { currentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
@@ -49,22 +52,26 @@ function App() {
       .catch(console.error);
   }, []);
 
-  console.log(weatherData);
-
   return (
     <div className="page">
       <currentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header
-            handleAddClick={handleAddClick}
-            weatherData={weatherData}
-          />
-          <Main
-            weatherData={weatherData}
-            handleCardClick={handleCardClick}
-          />
+          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick} />
+              }
+            />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+
           <Footer />
         </div>
         <ModalWithForm
