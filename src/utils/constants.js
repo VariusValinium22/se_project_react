@@ -82,6 +82,13 @@ export const defaultClothingItems = [
     weather: "cold",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
   },
+
+  {
+    _id: 6,
+    name: "Coat",
+    weather: "cold",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
+  },
 ];
 
 export const handleRequest = (res) => {
@@ -96,17 +103,20 @@ export const coordinates = {
   /*   latitude: 29.407780,
   longitude: -98.502582, */
   /* Honolulu */
-  /*   latitude: 21.298075,
+/*     latitude: 21.298075,
   longitude: -157.875712, */
   /* Evjen, Norway */
   /*   latitude: 68.2441,
   longitude: 13.7601, */
   /* Isla Navarino, Chile  */
-  latitude: -55.126163,
-  longitude: -67.597523,
+/*   latitude: -55.126163,
+  longitude: -67.597523, */
   /* Yakutsk, Russia */
 /*   latitude: 61.981701,
   longitude: 129.80615, */
+  /* Asuncion, Paraquay */
+  latitude: -25.28646,
+  longitude: -57.647
 };
 
 export const APIkey = "ad5625a093de3d7e472d2d1fd3d0e964";

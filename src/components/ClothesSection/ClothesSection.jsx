@@ -3,7 +3,7 @@ import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-function ClothesSection( {handleAddClick} ) {
+function ClothesSection( { handleAddClick, clothingItems } ) {
   return (
     <div className="clothes-section">
       <div className="clothes__title-button">
@@ -16,14 +16,14 @@ function ClothesSection( {handleAddClick} ) {
           + Add New
         </button>
       </div>
-      <ul className="main__items">
-        {defaultClothingItems.map((item) => {
+      <ul className="clothes__items">
+        {clothingItems.map((item) => {
           return (
             <ItemCard
               key={item._id}
               item={item}
               //TODO : pass as prop to this ClothesSection component with other props
-              //onCardClick={handleCardClick}
+              onCardClick={handleAddClick}
             />
           );
         })}

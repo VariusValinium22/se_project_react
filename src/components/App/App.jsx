@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import { coordinates, APIkey } from "../../utils/constants";
+import {
+  coordinates,
+  APIkey,
+  defaultClothingItems,
+} from "../../utils/constants";
+import { getClothingItems, addClothingItem } from "../../utils/api";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -21,6 +26,7 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   /* Event Handler Functions */
@@ -35,6 +41,18 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+  };
+
+  const handleAddItemSubmit = (item) => {
+    addClothingItem(item).then((newItem) => {
+      // make API/server request, then update state addNewItem()
+      setClothingItems([newItem, ...clothingItems]); //add this to then block
+      //set up catch block
+      closeActiveModal();
+    })
+    .catch((err) => {
+      console.error("Failed to add new item:", err);
+    })
   };
 
   const handleToggleSwitchChange = () => {
@@ -52,6 +70,14 @@ function App() {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    getClothingItems().then((items) => {
+      setClothingItems(items);
+    });
+
+    // set up catch block
+  }, []);
+
   return (
     <div className="page">
       <currentTemperatureUnitContext.Provider
@@ -66,79 +92,29 @@ function App() {
               element={
                 <Main
                   weatherData={weatherData}
-                  handleCardClick={handleCardClick} />
+                  handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
               }
             />
-            <Route path="/profile" element={<Profile />} />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  handleAddClick={handleAddClick}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
           </Routes>
 
           <Footer />
         </div>
-        <ModalWithForm
-          title="New garment"
-          buttonText="Add garment"
-          activeModal={activeModal}
+        <AddItemModal
+          closeActiveModal={closeActiveModal}
           isOpen={activeModal === "add-garment"}
-          onClose={closeActiveModal}
-        >
-          <label htmlFor="name" className="modal__label">
-            Name{" "}
-            <input
-              type="text"
-              className="modal__input"
-              id="name"
-              placeholder="Name"
-            />
-          </label>
-          <label htmlFor="imageUrl" className="modal__label">
-            Image{" "}
-            <input
-              type="Url"
-              className="modal__input"
-              id="imageUrl"
-              placeholder="Image URL"
-            />
-          </label>
-          <fieldset className="modal__radio-buttons">
-            <legend className="modal__legend">Select the weather type:</legend>
-            <label
-              htmlFor="hot"
-              className="modal__label modal__label_type_radio"
-            >
-              <input
-                type="radio"
-                className="modal__radio-input"
-                id="hot"
-                name="weatherTemp"
-              />{" "}
-              Hot
-            </label>
-            <label
-              htmlFor="warm"
-              className="modal__label modal__label_type_radio"
-            >
-              <input
-                type="radio"
-                className="modal__radio-input"
-                id="warm"
-                name="weatherTemp"
-              />{" "}
-              Warm
-            </label>
-            <label
-              htmlFor="cold"
-              className="modal__label modal__label_type_radio"
-            >
-              <input
-                type="radio"
-                className="modal__radio-input"
-                id="cold"
-                name="weatherTemp"
-              />{" "}
-              Cold
-            </label>
-          </fieldset>
-        </ModalWithForm>
+          handleAddItemSubmit={handleAddItemSubmit}
+        />
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
