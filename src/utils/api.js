@@ -4,14 +4,21 @@ const headers = { "Content-Type": "application/json" };
 const getClothingItems = () => {
   return fetch(`${baseUrl}/items`, {
     headers,
-  }).then(handleRequest);
+  })
+    .then(handleRequest)
+    .catch((err) => {
+    });
 };
 
 const addClothingItem = (item) => {
+  const formattedItem = {
+    ...item,
+    imageUrl: item.link,
+  };
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers,
-    body: JSON.stringify(item),
+    body: JSON.stringify(formattedItem),
   }).then(handleRequest);
 };
 
