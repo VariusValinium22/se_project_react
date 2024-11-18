@@ -5,7 +5,7 @@
   "homepage": "https://variusvalinium22.github.io/se_project_react/",
   "type": "module",
   "scripts": {
-    "dev": "start msedge http://localhost:3000 && vite",
+    "dev": "vite --open",
     "build": "vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist && start https://variusvalinium22.github.io/se_project_react/",
