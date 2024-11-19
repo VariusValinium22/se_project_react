@@ -11,14 +11,17 @@ const getClothingItems = () => {
 };
 
 const addClothingItem = (item) => {
-  const formattedItem = {
-    ...item,
-    imageUrl: item.link,
-  };
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers,
-    body: JSON.stringify(formattedItem),
+    body: JSON.stringify(item),
+  }).then(handleRequest);
+};
+
+const deleteClothingItem = (id) => {
+  return fetch(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+    headers,
   }).then(handleRequest);
 };
 
@@ -26,4 +29,4 @@ const handleRequest = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-export { getClothingItems, addClothingItem };
+export { getClothingItems, addClothingItem, deleteClothingItem };

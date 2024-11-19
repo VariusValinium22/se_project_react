@@ -24,9 +24,33 @@ modal__image {
   border-radius: 10px;
 }
 
-.modal__caption {
+.modal__caption-and-delete_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   font-size: 20px;
-  padding-left: 32px;
+}
+
+.modal__caption {
+  margin: 0;
+  font-size: 20px;
+  padding: 20px 0 12px 32px;
+}
+
+.modal__delete_button {
+  color: #FF4D00;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 20px 32px 12px 0;
+  margin: 0;
+  
+}
+
+@media screen and (max-width: 532px) {  
+  .modal_delete_button {
+    margin-top: 10px;
+  }
 }
 
 .modal__weather {

@@ -3,7 +3,7 @@ import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import "./Profile.css";
 
-function Profile({ handleAddClick, clothingItems }) {
+function Profile({ handleAddClick, clothingItems, handleCardClick }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
@@ -12,6 +12,7 @@ function Profile({ handleAddClick, clothingItems }) {
       <section className="profile__clothing-items">
         <ClothesSection
           handleAddClick={handleAddClick}
+          handleCardClick={handleCardClick}
           clothingItems={clothingItems}
         />
       </section>

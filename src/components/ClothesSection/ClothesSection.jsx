@@ -3,7 +3,7 @@ import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-function ClothesSection( { handleAddClick, clothingItems } ) {
+function ClothesSection({ handleAddClick, clothingItems, handleCardClick }) {
   return (
     <div className="clothes-section">
       <div className="clothes__title-button">
@@ -23,7 +23,7 @@ function ClothesSection( { handleAddClick, clothingItems } ) {
               key={item._id}
               item={item}
               //TODO : pass as prop to this ClothesSection component with other props
-              onCardClick={handleAddClick}
+              onCardClick={handleCardClick}
             />
           );
         })}

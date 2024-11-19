@@ -7,7 +7,11 @@ import {
   APIkey,
   defaultClothingItems,
 } from "../../utils/constants";
-import { getClothingItems, addClothingItem } from "../../utils/api";
+import {
+  getClothingItems,
+  addClothingItem,
+  deleteClothingItem,
+} from "../../utils/api";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -44,15 +48,26 @@ function App() {
   };
 
   const handleAddItemSubmit = (item) => {
-    addClothingItem(item).then((newItem) => {
-      // make API/server request, then update state addNewItem()
-      setClothingItems([newItem, ...clothingItems]); //add this to then block
-      //set up catch block
+    addClothingItem(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch((err) => {
+        console.error("Failed to add new item:", err);
+      });
+  };
+
+  const handleDeleteItem = (id) => {
+    deleteClothingItem(id).then(() => {
+      setClothingItems((prevItems) =>
+        prevItems.filter((item) => item._id !== id)
+      );
       closeActiveModal();
     })
-    .catch((err) => {
-      console.error("Failed to add new item:", err);
-    })
+    .catch((error) => {
+      console.error("Failed to delete item:", error);
+    });
   };
 
   const handleToggleSwitchChange = () => {
@@ -102,6 +117,7 @@ function App() {
               element={
                 <Profile
                   handleAddClick={handleAddClick}
+                  handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
                 />
               }
@@ -119,6 +135,7 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           onClose={closeActiveModal}
+          handleDeleteItem={handleDeleteItem}
         />
       </currentTemperatureUnitContext.Provider>
     </div>
