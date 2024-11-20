@@ -66,6 +66,7 @@ const AddItemModal = ({ closeActiveModal, isOpen, handleAddItemSubmit }) => {
             name="weatherTemp"
             value="hot"
             onChange={handleWeatherChange}
+            checked
           />{" "}
           Hot
         </label>
