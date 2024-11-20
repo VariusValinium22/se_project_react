@@ -10,7 +10,7 @@ const getClothingItems = () => {
     });
 };
 
-const addClothingItem = (item) => {
+const addClothingItem = (item) => { 
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers,

@@ -59,15 +59,16 @@ function App() {
   };
 
   const handleDeleteItem = (id) => {
-    deleteClothingItem(id).then(() => {
-      setClothingItems((prevItems) =>
-        prevItems.filter((item) => item._id !== id)
-      );
-      closeActiveModal();
-    })
-    .catch((error) => {
-      console.error("Failed to delete item:", error);
-    });
+    deleteClothingItem(id)
+      .then(() => {
+        setClothingItems((prevItems) =>
+          prevItems.filter((item) => item._id !== id)
+        );
+        closeActiveModal();
+      })
+      .catch((error) => {
+        console.error("Failed to delete item:", error);
+      });
   };
 
   const handleToggleSwitchChange = () => {

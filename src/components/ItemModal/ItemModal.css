@@ -40,10 +40,12 @@ modal__image {
 
 .modal__delete_button {
   color: #FF4D00;
+  background-color: #FFF;
   font-size: 20px;
   cursor: pointer;
   padding: 20px 32px 12px 0;
   margin: 0;
+  border: none;
   
 }
 
