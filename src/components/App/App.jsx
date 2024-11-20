@@ -32,6 +32,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [userName, setUserName] = useState("Terrence Tegegne");
 
   /* Event Handler Functions */
   const handleCardClick = (card) => {
@@ -120,6 +121,7 @@ function App() {
                   handleAddClick={handleAddClick}
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  userName={userName}
                 />
               }
             />
