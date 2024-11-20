@@ -89,6 +89,7 @@
 
 .modal__label_type_radio {
     padding-top: 8px;
+    color: #D3D3D3;
 }
 
 .modal__submit_container {
@@ -103,10 +104,3 @@
     border-radius: 5px;
     border: none;
 }
-
-/* 
-modal__content.position:relative + modal__close.position:absolute,top,right moves the button correctly
-
-set margins between all the elements
-set colors and font-styles
- */
