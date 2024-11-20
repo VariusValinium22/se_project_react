@@ -19,7 +19,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 function App() {
   const [weatherData, setWeatherData] = useState({

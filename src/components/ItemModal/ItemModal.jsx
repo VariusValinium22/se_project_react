@@ -1,5 +1,4 @@
 import "./ItemModal.css";
-import close from "../../assets/ClearX.png";
 
 function ItemModal({ activeModal, onClose, card, handleDeleteItem }) {
   const handleDelete = () => {
