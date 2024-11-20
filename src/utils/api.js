@@ -6,11 +6,10 @@ const getClothingItems = () => {
     headers,
   })
     .then(handleRequest)
-    .catch((err) => {
-    });
+    .catch((err) => {});
 };
 
-const addClothingItem = (item) => { 
+const addClothingItem = (item) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers,

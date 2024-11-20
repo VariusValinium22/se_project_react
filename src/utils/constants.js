@@ -103,20 +103,20 @@ export const coordinates = {
   /*   latitude: 29.407780,
   longitude: -98.502582, */
   /* Honolulu */
-/*     latitude: 21.298075,
+  /*     latitude: 21.298075,
   longitude: -157.875712, */
   /* Evjen, Norway */
   /*   latitude: 68.2441,
   longitude: 13.7601, */
   /* Isla Navarino, Chile  */
-/*   latitude: -55.126163,
+  /*   latitude: -55.126163,
   longitude: -67.597523, */
   /* Yakutsk, Russia */
-/*   latitude: 61.981701,
+  /*   latitude: 61.981701,
   longitude: 129.80615, */
   /* Asuncion, Paraquay */
   latitude: -25.28646,
-  longitude: -57.647
+  longitude: -57.647,
 };
 
 export const APIkey = "ad5625a093de3d7e472d2d1fd3d0e964";

@@ -6,7 +6,7 @@ function ItemCard({ item, onCardClick }) {
   };
 
   return (
-    <li className="card" key={item.api_id} >
+    <li className="card" key={item.api_id}>
       <h2 className="card__name">{item.name}</h2>
       <img
         className="card__image"

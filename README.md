@@ -16,3 +16,6 @@ When you click on an item in the closthes section, a modal appears that displays
 There is a weather card that presents the temperature of the given coordinates and displays a related picture of the condition of the given location.
 
 Technologies: React.js; Vite.js; HTML/CSS; BEM/semantic tags;
+
+GitHub Page: https://variusvalinium22.github.io/se_project_react/
+

@@ -14,7 +14,6 @@ import {
 } from "../../utils/api";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
@@ -84,15 +83,19 @@ function App() {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error("Failed to get the weather item:", error);
+      });
   }, []);
 
   useEffect(() => {
-    getClothingItems().then((items) => {
-      setClothingItems(items);
-    });
-
-    // set up catch block
+    getClothingItems()
+      .then((items) => {
+        setClothingItems(items);
+      })
+      .catch((error) => {
+        console.error("Failed to delete item:", error);
+      });
   }, []);
 
   return (

@@ -39,17 +39,16 @@ modal__image {
 }
 
 .modal__delete_button {
-  color: #FF4D00;
-  background-color: #FFF;
+  color: #ff4d00;
+  background-color: #fff;
   font-size: 20px;
   cursor: pointer;
   padding: 20px 32px 12px 0;
   margin: 0;
   border: none;
-  
 }
 
-@media screen and (max-width: 532px) {  
+@media screen and (max-width: 532px) {
   .modal_delete_button {
     margin-top: 10px;
   }
