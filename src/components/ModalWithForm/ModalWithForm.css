@@ -20,7 +20,6 @@
   /* colors the modal */
   background-color: #fff;
   position: relative;
-  padding: 28px 28px 38px;
   margin: 10px;
   /* make the modal bigger */
   max-width: 496px;
@@ -28,7 +27,11 @@
   width: 100%;
   /* curve the corners */
   border-radius: 10px;
-  min-height: 330px;
+  min-height: 436px;
+}
+
+.modal__container {
+  padding: 28px 28px 38px;
 }
 
 .modal__header {
