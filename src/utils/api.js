@@ -4,9 +4,7 @@ const headers = { "Content-Type": "application/json" };
 const getClothingItems = () => {
   return fetch(`${baseUrl}/items`, {
     headers,
-  })
-    .then(handleRequest)
-    .catch((err) => {});
+  }).then(handleRequest);
 };
 
 const addClothingItem = (item) => {
@@ -28,4 +26,4 @@ const handleRequest = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-export { getClothingItems, addClothingItem, deleteClothingItem };
+export { getClothingItems, addClothingItem, deleteClothingItem, handleRequest };

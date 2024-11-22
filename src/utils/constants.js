@@ -91,10 +91,6 @@ export const defaultClothingItems = [
   },
 ];
 
-export const handleRequest = (res) => {
-  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-};
-
 export const coordinates = {
   /* Los Angeles */
   /* latitude: 34.052235,
