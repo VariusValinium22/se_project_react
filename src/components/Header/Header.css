@@ -17,6 +17,7 @@
   margin: 0 20px;
   font-weight: 700;
   border: none;
+  cursor: pointer;
 }
 
 .header__link {

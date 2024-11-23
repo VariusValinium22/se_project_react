@@ -107,10 +107,10 @@ export const coordinates = {
   /* Isla Navarino, Chile  */
   /*   latitude: -55.126163,
   longitude: -67.597523, */
-  /* Yakutsk, Russia */
+  /*COLD: Yakutsk, Russia */
   /*   latitude: 61.981701,
   longitude: 129.80615, */
-  /* Asuncion, Paraquay */
+  /*HOT: Asuncion, Paraquay */
   latitude: -25.28646,
   longitude: -57.647,
 };

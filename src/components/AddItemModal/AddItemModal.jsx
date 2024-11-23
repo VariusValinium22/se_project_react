@@ -5,24 +5,25 @@ import "./AddItemModal.css";
 const AddItemModal = ({ closeActiveModal, isOpen, handleAddItemSubmit }) => {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
-    console.log(e.target.value);
     setName(e.target.value);
   };
 
   const [imageUrl, setImageUrl] = useState("");
   const handleUrlChange = (e) => {
-    console.log(e.target.value);
     setImageUrl(e.target.value);
   };
 
-  const [weather, setWeather] = useState("");
+  const [weather, setWeather] = useState("hot");
   const handleWeatherChange = (e) => {
-    console.log(e.target.value);
     setWeather(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!weather) {
+      alert("Please select a weather type!");
+      return;
+    }
     handleAddItemSubmit({ name, imageUrl, weather });
   };
 
@@ -66,7 +67,7 @@ const AddItemModal = ({ closeActiveModal, isOpen, handleAddItemSubmit }) => {
             name="weatherTemp"
             value="hot"
             onChange={handleWeatherChange}
-            checked
+            checked={weather === "hot"}
           />{" "}
           Hot
         </label>
