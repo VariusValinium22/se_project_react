@@ -81,7 +81,6 @@ function App() {
     getWeather(coordinates, APIkey)
       .then((data) => {
         console.log(data.name);
-        console.log(data.main.temp);
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
