@@ -1,0 +1,10 @@
+.profile {
+  display: flex;
+  gap: 116px;
+}
+
+@media screen and (max-width: 960px) {
+  .profile {
+    display: block;
+  }
+}

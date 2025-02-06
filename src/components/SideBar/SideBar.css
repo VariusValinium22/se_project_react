@@ -1,0 +1,25 @@
+.sidebar {
+  display: flex;
+  gap: 16px;
+  margin-top: 19px;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+}
+
+.sidebar__username {
+  margin: 0;
+  margin-top: 18px;
+  white-space: nowrap;
+  max-width: 100%;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 960px) {
+  .sidebar {
+    justify-self: center;
+    margin: 0;
+  }
+}

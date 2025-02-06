@@ -1,0 +1,36 @@
+.clothes__title-button {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.clothes__title {
+  font-weight: 700;
+}
+
+.clothes__button {
+  color: rgba(0, 0, 0, 0.6);
+  border: none;
+  font-weight: 700;
+}
+
+.clothes__items {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 21px;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 960px) {
+  .clothes-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .clothes__items {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,38 @@
+.card {
+  position: relative;
+  width: 323px;
+  height: 326px;
+  display: flex;
+  justify-content: center;
+}
+
+.card__name {
+  position: absolute;
+  top: 15px;
+  margin: 0;
+  position: absolute;
+  background-color: white;
+  padding: 2px 12px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 2px solid #d3d3d3;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 
+position: relative and absolute pulls the name onto the card
+card.width:323px(Figma match) and .card__image.width:100% to fit the cards to the width
+of the ul.cards__list element
+card.display: flex;and card.justify-content: center centers the name on the card
+set font sizes 
+card__name.top:15px drops the name down a bit
+card__name.margin:0 erase the margins on the name
+card__image.border, border-radius and overflow curves the corners of the cards
+*/
