@@ -6,6 +6,14 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 function ClothesSection({ handleAddClick, clothingItems, handleCardClick }) {
   const currentUser = useContext(CurrentUserContext);
 
+  if (clothingItems === undefined) {
+    return <p> Loading items... </p>;
+  }
+
+  if (clothingItems.length === 0) {
+    return <p>No items found. Add an Item!</p>
+  }
+
   return (
     <div className="clothes-section">
       <div className="clothes__title-button">
