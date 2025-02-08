@@ -6,7 +6,7 @@ const getClothingItems = () => {
     headers,
   }).then(handleRequest);
 };
- 
+
 const addClothingItem = (item, token) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
@@ -28,17 +28,25 @@ const deleteClothingItem = (id, token) => {
   }).then(handleRequest);
 };
 
+const updateUserProfile = (userData, token) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      ...headers,
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(userData),
+  }).then(handleRequest);
+};
+
 const handleRequest = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-export { getClothingItems, addClothingItem, deleteClothingItem, handleRequest };
-
-
-
-
-
-
-
-
-
+export {
+  getClothingItems,
+  addClothingItem,
+  deleteClothingItem,
+  updateUserProfile,
+  handleRequest,
+};

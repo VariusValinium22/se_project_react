@@ -3,6 +3,13 @@
   gap: 116px;
 }
 
+.header__avatar {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 960px) {
   .profile {
     display: block;

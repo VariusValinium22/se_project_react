@@ -43,7 +43,5 @@ const getWeatherType = (temperature) => {
     },
     type: getWeatherType(temperature),
   };
-  console.log(weather.temperature.C);
-  console.log(weather.temperature.F);
   return weather;
 }; */
