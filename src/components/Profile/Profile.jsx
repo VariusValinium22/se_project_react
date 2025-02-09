@@ -5,13 +5,18 @@ import "./Profile.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
-function Profile({ handleAddClick, clothingItems, handleCardClick, setActiveModal }) {
-  const currentUser = useContext(CurrentUserContext);
+function Profile({
+  handleAddClick,
+  clothingItems,
+  handleCardClick,
+  setActiveModal,
+}) {
+  const { currentUser } = useContext(CurrentUserContext);
 
   if (!currentUser || !currentUser.name) {
-    console.error("currentUser is undefined or missing props: ", currentUser)
+    console.error("currentUser is undefined or missing props: ", currentUser);
   }
-  console.log('Profile.jsx Current User: ', currentUser)
+  console.log("Profile.jsx Current User: ", currentUser);
 
   return (
     <div className="profile">
