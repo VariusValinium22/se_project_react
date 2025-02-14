@@ -9,6 +9,7 @@ function Profile({
   handleAddClick,
   clothingItems,
   handleCardClick,
+  onCardLike,
   setActiveModal,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
@@ -16,24 +17,24 @@ function Profile({
   if (!currentUser || !currentUser.name) {
     console.error("currentUser is undefined or missing props: ", currentUser);
   }
-  console.log("Profile.jsx Current User: ", currentUser);
 
   return (
     <div className="profile">
-      <section className="profile__sidebar">
-        <SideBar userName={currentUser.name} />
+      <div className="profile__sidebar-container">
+        <SideBar avatar={currentUser.avatar} name={currentUser.name} />
         <button
           onClick={() => setActiveModal("edit-profile")}
           className="profile__edit-button"
         >
-          Edit Profile
+          Edit profile
         </button>
-      </section>
+      </div>
       <section className="profile__clothing-items">
         <ClothesSection
           handleAddClick={handleAddClick}
           handleCardClick={handleCardClick}
           clothingItems={clothingItems}
+          onCardLike={onCardLike}
         />
       </section>
     </div>

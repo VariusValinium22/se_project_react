@@ -1,17 +1,24 @@
 .profile {
   display: flex;
+  /* align-items: center; */
   gap: 116px;
 }
 
-.header__avatar {
-  width: 128px;
-  height: 128px;
-  object-fit: cover;
-  border-radius: 50%;
+.profile__edit-button {
+  border: none;
+  cursor: pointer;
+  color: #000000;
+  font-weight: 700;
+  margin-top: 24px;
 }
 
 @media screen and (max-width: 960px) {
   .profile {
     display: block;
+  }
+
+  .profile__sidebar-container {
+    display: block;
+    text-align: center;
   }
 }

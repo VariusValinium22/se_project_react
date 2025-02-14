@@ -3,15 +3,20 @@ import "./ClothesSection.css";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function ClothesSection({ handleAddClick, clothingItems, handleCardClick }) {
-  const currentUser = useContext(CurrentUserContext);
+function ClothesSection({
+  handleAddClick,
+  clothingItems,
+  handleCardClick,
+  onCardLike,
+}) {
+  const { currentUser } = useContext(CurrentUserContext);
 
   if (clothingItems === undefined) {
     return <p> Loading items... </p>;
   }
 
   if (clothingItems.length === 0) {
-    return <p>No items found. Add an Item!</p>
+    return <p>No items found. Add an Item!</p>;
   }
 
   return (
@@ -35,6 +40,7 @@ function ClothesSection({ handleAddClick, clothingItems, handleCardClick }) {
                 key={item._id}
                 item={item}
                 onCardClick={handleCardClick}
+                onCardLike={onCardLike}
               />
             );
           })}

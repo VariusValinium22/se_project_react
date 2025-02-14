@@ -5,7 +5,6 @@ import { updateUserProfile } from "../../utils/api";
 
 function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-
   const [name, setName] = useState(currentUser?.name || "");
   const [avatar, setAvatar] = useState(currentUser?.avatar || "");
 

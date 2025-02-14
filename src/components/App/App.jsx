@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "../ProtectedRoutes/ProtectedRoutes";
+import * as api from "../../utils/api";
 
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
@@ -107,6 +108,27 @@ function App() {
       .catch((error) => console.error("Login Failed: ", error));
   };
 
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    !isLiked
+      ? api
+          .addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((error) => console.log(error))
+      : api
+          .removeCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((error) => console.log(error));
+  };
+
   /* React Hooks */
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -126,30 +148,24 @@ function App() {
       })
       .catch((error) => {
         console.error("Failed to delete item:", error);
-        /* setClothingItems(defaultClothingItems); */
       });
   }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-    console.log("Checking token in localStorage:", token);
     if (token) {
       checkToken(token)
         .then((userData) => {
-          console.log("App.jsx Fetched user data: ", userData);
           setCurrentUser(userData);
           setIsLoggedIn(true);
         })
         .catch((error) => {
-          console.error("Failed to fetch user data:", error);
           localStorage.removeItem("jwt");
           setIsLoggedIn(false);
           setCurrentUser(null);
         });
-      } else {
-        console.warn("🔴 No token found. User might be logged out.");
-      }
-    }, []);
+    }
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
@@ -174,6 +190,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
                   />
                 }
               />
@@ -187,6 +204,7 @@ function App() {
                     handleAddClick={handleAddClick}
                     handleCardClick={handleCardClick}
                     setActiveModal={setActiveModal}
+                    onCardLike={handleCardLike}
                   />
                 }
               />

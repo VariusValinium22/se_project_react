@@ -15,16 +15,6 @@ function Header({
   const { currentUser } = useContext(CurrentUserContext);
   const getInitials = (name) => (name ? name.charAt(0).toUpperCase() : "?");
 
-  console.log("🔵 Header.jsx: Current User Context:", currentUser);
-
-  if (!isLoggedIn) {
-    console.warn("🔴 User is not logged in, hiding profile details.");
-  }
-
-  if (!currentUser || !currentUser.name) {
-    console.warn("🔴 currentUser is missing in Header:", currentUser);
-  }
-
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
