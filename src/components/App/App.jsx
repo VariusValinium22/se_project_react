@@ -35,7 +35,6 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState(null);
-  const [userName, setUserName] = useState("Terrence Tegegne");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const openRegisterModal = () => setActiveModal("register");
   const openLoginModal = () => setActiveModal("login");
@@ -205,6 +204,8 @@ function App() {
                     handleCardClick={handleCardClick}
                     setActiveModal={setActiveModal}
                     onCardLike={handleCardLike}
+                    currentUser={currentUser}
+                    setIsLoggedIn={setIsLoggedIn}
                   />
                 }
               />

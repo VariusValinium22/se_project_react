@@ -4,6 +4,8 @@ import "./Profile.css";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Profile({
   handleAddClick,
@@ -11,12 +13,20 @@ function Profile({
   handleCardClick,
   onCardLike,
   setActiveModal,
+  setIsLoggedIn
 }) {
   const { currentUser } = useContext(CurrentUserContext);
+  const navigate = useNavigate();
 
   if (!currentUser || !currentUser.name) {
     console.error("currentUser is undefined or missing props: ", currentUser);
   }
+
+  const handleSignOut = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    navigate("/");
+  };
 
   return (
     <div className="profile">
@@ -27,6 +37,9 @@ function Profile({
           className="profile__edit-button"
         >
           Edit profile
+        </button>
+        <button className="profile__signout-button" onClick={handleSignOut}>
+          Sign Out
         </button>
       </div>
       <section className="profile__clothing-items">
