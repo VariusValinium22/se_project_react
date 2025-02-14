@@ -12,6 +12,14 @@
   margin-top: 24px;
 }
 
+.profile__signout-button {
+  border: none;
+  cursor: pointer;
+  color: #000000;
+  font-weight: 700;
+  margin-top: 24px;
+}
+
 @media screen and (max-width: 960px) {
   .profile {
     display: block;

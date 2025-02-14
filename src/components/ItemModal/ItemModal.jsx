@@ -4,12 +4,12 @@ import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function ItemModal({ activeModal, onClose, card, handleDeleteItem }) {
-  const currentUser = useContext(CurrentUserContext); // Get logged-in User
+  const {currentUser} = useContext(CurrentUserContext); // Get logged-in User
 
   const handleDelete = () => {
     handleDeleteItem(card._id);
   };
-  const isOwn = card.owner === currentUser?._id; // Check if logged-in user owns this item
+  const isOwn = currentUser && card.owner === currentUser?._id; // Check if logged-in user owns this item
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">

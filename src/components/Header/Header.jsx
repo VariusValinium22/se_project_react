@@ -32,21 +32,23 @@ function Header({
 
       <ToggleSwitch />
 
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
-      >
-        + Add clothes
-      </button>
+      {isLoggedIn && (
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="header__add-clothes-btn"
+        >
+          + Add clothes
+        </button>
+      )}
 
       {!isLoggedIn && (
         <>
-          <button onClick={openLoginModal} className="header__auth-btn">
-            Log In
+          <button onClick={openRegisterModal} className="header__signup-btn">
+            Sign Up
           </button>
-          <button onClick={openRegisterModal} className="header__auth-btn">
-            Register
+          <button onClick={openLoginModal} className="header__login-btn">
+            Log In
           </button>
         </>
       )}

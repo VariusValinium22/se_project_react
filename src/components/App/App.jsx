@@ -107,6 +107,13 @@ function App() {
       .catch((error) => console.error("Login Failed: ", error));
   };
 
+  const handleLogOut = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    setCurrentUser({});
+    navigate("/");
+  };
+
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
     !isLiked
@@ -206,6 +213,7 @@ function App() {
                     onCardLike={handleCardLike}
                     currentUser={currentUser}
                     setIsLoggedIn={setIsLoggedIn}
+                    handleLogOut={handleLogOut}
                   />
                 }
               />

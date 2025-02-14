@@ -12,8 +12,8 @@ function Profile({
   clothingItems,
   handleCardClick,
   onCardLike,
-  setActiveModal,
-  setIsLoggedIn
+  setActiveModal, 
+  handleLogOut
 }) {
   const { currentUser } = useContext(CurrentUserContext);
   const navigate = useNavigate();
@@ -21,12 +21,6 @@ function Profile({
   if (!currentUser || !currentUser.name) {
     console.error("currentUser is undefined or missing props: ", currentUser);
   }
-
-  const handleSignOut = () => {
-    localStorage.removeItem("jwt");
-    setIsLoggedIn(false);
-    navigate("/");
-  };
 
   return (
     <div className="profile">
@@ -38,7 +32,7 @@ function Profile({
         >
           Edit profile
         </button>
-        <button className="profile__signout-button" onClick={handleSignOut}>
+        <button className="profile__signout-button" onClick={handleLogOut}>
           Sign Out
         </button>
       </div>
