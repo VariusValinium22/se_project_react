@@ -1,3 +1,7 @@
+THIS IS THE LINK TO THE BACKEND REPO!!!
+Backend Repo GitHub Page: https://github.com/VariusValinium22/se_project_express
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -20,6 +24,7 @@ This project is the frontEnd of the backEnd project: se_project_express
 Technologies: React.js; Vite.js; HTML/CSS; BEM/semantic tags;
 
 GitHub Page: https://variusvalinium22.github.io/se_project_react/
+Backend Repo GitHub Page: https://github.com/VariusValinium22/se_project_express 
 
 After building the backend project, we know have a mongodb attached that we can see items added through Postman and addItem button.
 
@@ -32,3 +37,6 @@ LOCAL run: se_project_react: To run this project: npm run dev
 PROD run: there is no way to run this project in prod yet...till deployed in google cloud
     Sprint 14: connect both apps
     Sprint 15: deploy both in google cloud for PROD 
+
+THIS IS THE LINK TO THE BACKEND REPO!!!
+Backend Repo GitHub Page: https://github.com/VariusValinium22/se_project_express
