@@ -4,8 +4,6 @@ import "./Profile.css";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-
 
 function Profile({
   handleAddClick,
@@ -16,7 +14,6 @@ function Profile({
   handleLogOut
 }) {
   const { currentUser } = useContext(CurrentUserContext);
-  const navigate = useNavigate();
 
   if (!currentUser || !currentUser.name) {
     console.error("currentUser is undefined or missing props: ", currentUser);

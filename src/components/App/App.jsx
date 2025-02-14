@@ -23,6 +23,8 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { register, login, checkToken } from "../../utils/auth";
+import { useNavigate } from "react-router-dom";
+
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -38,6 +40,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const openRegisterModal = () => setActiveModal("register");
   const openLoginModal = () => setActiveModal("login");
+  const navigate = useNavigate();
+
 
   /* Event Handler Functions */
   const handleCardClick = (card) => {
@@ -110,7 +114,7 @@ function App() {
   const handleLogOut = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
-    setCurrentUser({});
+    setCurrentUser(null);
     navigate("/");
   };
 
