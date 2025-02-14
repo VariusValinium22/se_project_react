@@ -1,5 +1,4 @@
-THIS IS THE LINK TO THE BACKEND REPO!!!
-Backend Repo GitHub Page: https://github.com/VariusValinium22/se_project_express
+This is the link to the backend GitHub [link](https://github.com/VariusValinium22/se_project_express):
 
 
 # React + Vite
@@ -23,8 +22,8 @@ This project is the frontEnd of the backEnd project: se_project_express
 
 Technologies: React.js; Vite.js; HTML/CSS; BEM/semantic tags;
 
-GitHub Page: https://variusvalinium22.github.io/se_project_react/
-Backend Repo GitHub Page: https://github.com/VariusValinium22/se_project_express 
+GitHub Page: [link](https://variusvalinium22.github.io/se_project_react/)
+Backend Repo GitHub Page: [link](https://github.com/VariusValinium22/se_project_express) 
 
 After building the backend project, we know have a mongodb attached that we can see items added through Postman and addItem button.
 
