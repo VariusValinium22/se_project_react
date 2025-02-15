@@ -126,3 +126,27 @@
   border: none;
   cursor: pointer;
 }
+
+.modal__toggle {
+  padding: 8px 16px;
+  color: rgba(0, 0, 0, 0.5);
+  background: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.modal__label-error {
+  color: red;
+}
+
+.modal__input-error {
+  border: red;
+  color: red;
+}

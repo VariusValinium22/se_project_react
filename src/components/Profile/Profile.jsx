@@ -27,7 +27,7 @@ function Profile({
           onClick={() => setActiveModal("edit-profile")}
           className="profile__edit-button"
         >
-          Edit profile
+          Change profile data
         </button>
         <button className="profile__signout-button" onClick={handleLogOut}>
           Sign Out

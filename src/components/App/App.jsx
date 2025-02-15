@@ -95,20 +95,20 @@ function App() {
   };
 
   const handleLogin = (email, password) => {
-    login(email, password)
+    return login(email, password)
       .then((res) => {
         localStorage.setItem("jwt", res.token);
         setIsLoggedIn(true);
-
-        checkToken(res.token)
-          .then((userData) => {
-            setCurrentUser(userData);
-          })
-          .catch((error) =>
-            console.error("Falied to fetch user data: ", error)
-          );
+        return checkToken(res.token);
       })
-      .catch((error) => console.error("Login Failed: ", error));
+      .then((userData) => {
+        setCurrentUser(userData);
+        return Promise.resolve();
+      })
+      .catch((error) => {
+        console.error("Failed to fetch user data: ", error);
+        return Promise.reject(error);
+      });
   };
 
   const handleLogOut = () => {
@@ -240,11 +240,13 @@ function App() {
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "register"}
             onRegister={handleRegister}
+            setActiveModal={setActiveModal}
           />
           <LoginModal
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "login"}
             onLogin={handleLogin}
+            setActiveModal={setActiveModal}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}
