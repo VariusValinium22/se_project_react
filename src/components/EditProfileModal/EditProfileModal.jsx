@@ -10,15 +10,15 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
 
   useEffect(() => {
     if (isOpen) {
-        setName(currentUser?.name || "");
-        setAvatar(currentUser?.avatar || "");
+      setName(currentUser?.name || "");
+      setAvatar(currentUser?.avatar || "");
     }
   }, [isOpen, currentUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const token = localStorage.getItem("jwt");
-    
+
     if (!token) {
       console.error("No token found. user not authenticated.");
       return;
@@ -42,20 +42,23 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
       onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">
-        Name: {" "}
+        Name:{" "}
         <input
           type="text"
+          id="name"
           className="modal__input"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          autoComplete="name"
           required
         />
       </label>
-      <label htmlFor="ImageUrl" className="modal__label">
-        Avatar URL: {" "}
+      <label htmlFor="imageUrl" className="modal__label">
+        Avatar URL:{" "}
         <input
           type="Url"
+          id="imageUrl"
           className="modal__input"
           placeholder="Image URL"
           value={avatar}

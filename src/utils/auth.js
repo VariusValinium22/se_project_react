@@ -1,7 +1,11 @@
+import { handleRequest } from "./api";
+
 const BASE_URL = "http://localhost:3001";
 const headers = { "Content-Type": "application/json" };
 
 const register = (name, avatar, email, password) => {
+  console.log("Registering user with data:", { name, avatar, email, password });
+  
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers,
@@ -25,10 +29,6 @@ const checkToken = (token) => {
         authorization: `Bearer ${token}`,
     },
   }).then(handleRequest);
-};
-
-const handleRequest = (res) => {
-  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
 export { register, login, checkToken };

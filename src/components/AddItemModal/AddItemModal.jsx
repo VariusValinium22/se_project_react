@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./AddItemModal.css"; 
+import "./AddItemModal.css";
 
 const AddItemModal = ({ closeActiveModal, isOpen, handleAddItemSubmit }) => {
   const [name, setName] = useState("");
@@ -35,23 +35,24 @@ const AddItemModal = ({ closeActiveModal, isOpen, handleAddItemSubmit }) => {
       onClose={closeActiveModal}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="additem-name" className="modal__label">
         Name{" "}
         <input
           type="text"
+          id="additem-name"
           className="modal__input"
-          id="name"
           placeholder="Name"
           value={name}
           onChange={handleNameChange}
+          autoComplete="name"
         />
       </label>
-      <label htmlFor="imageUrl" className="modal__label">
+      <label htmlFor="additem-imageUrl" className="modal__label">
         Image{" "}
         <input
           type="Url"
           className="modal__input"
-          id="imageUrl"
+          id="additem-imageUrl"
           placeholder="Image URL"
           value={imageUrl}
           onChange={handleUrlChange}

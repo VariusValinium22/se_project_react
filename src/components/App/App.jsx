@@ -25,7 +25,6 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { register, login, checkToken } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
 
-
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -38,10 +37,10 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const openRegisterModal = () => setActiveModal("register");
   const openLoginModal = () => setActiveModal("login");
   const navigate = useNavigate();
-
 
   /* Event Handler Functions */
   const handleCardClick = (card) => {
@@ -89,12 +88,21 @@ function App() {
   };
 
   const handleRegister = (name, avatar, email, password) => {
-    register(name, avatar, email, password)
+    setIsLoading(true);
+    return register(name, avatar, email, password)
       .then(() => handleLogin(email, password))
-      .catch((error) => console.error("Registration failed: ", error));
+      .then(() => closeActiveModal())
+      .catch((error) => {
+        console.error("Registration failed: ", error);
+        return Promise.reject(error); 
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleLogin = (email, password) => {
+    setIsLoading(true);
     return login(email, password)
       .then((res) => {
         localStorage.setItem("jwt", res.token);
@@ -103,11 +111,14 @@ function App() {
       })
       .then((userData) => {
         setCurrentUser(userData);
+        closeActiveModal();
         return Promise.resolve();
       })
       .catch((error) => {
-        console.error("Failed to fetch user data: ", error);
         return Promise.reject(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -177,6 +188,19 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    if (!activeModal) return;
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener("keydown", handleEscClose);
+    return () => {
+      document.removeEventListener("kedown", handleEscClose);
+    };
+  }, [activeModal]);
+
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
       <div className="page">
@@ -215,7 +239,6 @@ function App() {
                     handleCardClick={handleCardClick}
                     setActiveModal={setActiveModal}
                     onCardLike={handleCardLike}
-                    currentUser={currentUser}
                     setIsLoggedIn={setIsLoggedIn}
                     handleLogOut={handleLogOut}
                   />
@@ -241,12 +264,14 @@ function App() {
             isOpen={activeModal === "register"}
             onRegister={handleRegister}
             setActiveModal={setActiveModal}
+            isLoading={isLoading}
           />
           <LoginModal
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "login"}
             onLogin={handleLogin}
             setActiveModal={setActiveModal}
+            isLoading={isLoading}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}

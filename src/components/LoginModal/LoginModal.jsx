@@ -2,7 +2,13 @@ import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { use } from "react";
 
-const LoginModal = ({ closeActiveModal, isOpen, onLogin, setActiveModal }) => {
+const LoginModal = ({
+  closeActiveModal,
+  isOpen,
+  onLogin,
+  setActiveModal,
+  isLoading,
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -10,48 +16,49 @@ const LoginModal = ({ closeActiveModal, isOpen, onLogin, setActiveModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
-
-    try {
-    await onLogin(email, password);
-    closeActiveModal();
-    } catch (error) {
-      setErrorMessage("Incorrect password");
-    }    
+    onLogin(email, password).catch(() => setErrorMessage("Incorrect password"));
   };
 
   return (
     <ModalWithForm
       title="Log In"
-      buttonText="Sign In"
+      buttonText={isLoading ? "Signing in..." : "Sign In"}
       isOpen={isOpen}
       onClose={closeActiveModal}
       onSubmit={handleSubmit}
       toggleModal={() => setActiveModal("register")}
       toggleText="or Sign Up"
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="login-email" className="modal__label">
         Email
         <input
           type="email"
+          id="login-email"
           className="modal__input"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          disabled={isLoading}
           required
         />
       </label>
-      <label htmlFor="password" className={`modal__label ${errorMessage ? "modal__label-error" : ""}`}>
-        Password
+      <label htmlFor="login-password" className="modal__label">
+        {errorMessage ? (
+          <p className="modal__error">{errorMessage}</p>
+        ) : (
+          <p>Password</p>
+        )}
         <input
           type="password"
-          className="modal__input"
+          id="login-password"
+          className={`modal__input ${errorMessage && "modal__input_error"}`}
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          disabled={isLoading}
           required
         />
       </label>
-      {errorMessage && <p className="modal__error">{errorMessage}</p>}
     </ModalWithForm>
   );
 };
