@@ -195,11 +195,20 @@ function App() {
         closeActiveModal();
       }
     };
+
+    const handleOverlay = (e) => {
+      if (e.target.classList.contains("modal"))
+        closeActiveModal();
+    }
+
     document.addEventListener("keydown", handleEscClose);
+    document.addEventListener("mousedown", handleOverlay);
+
     return () => {
       document.removeEventListener("kedown", handleEscClose);
+      document.removeEventListener("mousedown", handleOverlay);
     };
-  }, [activeModal]);
+  }, [activeModal, closeActiveModal]);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>

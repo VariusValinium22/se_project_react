@@ -4,8 +4,8 @@ const BASE_URL = "http://localhost:3001";
 const headers = { "Content-Type": "application/json" };
 
 const register = (name, avatar, email, password) => {
-  console.log("Registering user with data:", { name, avatar, email, password });
-  
+  console.log("Sending register data:", { name, avatar, email, password });
+
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers,
@@ -25,8 +25,8 @@ const checkToken = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
-        ...headers,
-        authorization: `Bearer ${token}`,
+      ...headers,
+      authorization: `Bearer ${token}`,
     },
   }).then(handleRequest);
 };
