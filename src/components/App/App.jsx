@@ -205,7 +205,7 @@ function App() {
     document.addEventListener("mousedown", handleOverlay);
 
     return () => {
-      document.removeEventListener("kedown", handleEscClose);
+      document.removeEventListener("keydown", handleEscClose);
       document.removeEventListener("mousedown", handleOverlay);
     };
   }, [activeModal, closeActiveModal]);
