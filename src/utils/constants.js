@@ -1,4 +1,4 @@
-export const weatherOptions = [
+const weatherOptions = [
   {
     day: true,
     condition: "clear",
@@ -36,7 +36,7 @@ export const weatherOptions = [
   },
 ];
 
-export const defaultWeatherOptions = {
+const defaultWeatherOptions = {
   day: {
     url: new URL("../assets/day/defaultDay.png", import.meta.url).href,
   },
@@ -45,7 +45,7 @@ export const defaultWeatherOptions = {
   },
 };
 
-export const defaultClothingItems = [
+const defaultClothingItems = [
   {
     _id: 0,
     name: "Cap",
@@ -91,12 +91,12 @@ export const defaultClothingItems = [
   },
 ];
 
-export const coordinates = {
+const coordinates = {
   /* Los Angeles */
   /* latitude: 34.052235,
   longitude: -118.243683, */
   /* San Antonio */
-/*     latitude: 29.407780,
+  /*     latitude: 29.407780,
   longitude: -98.502582, */
   /* Honolulu */
   /*     latitude: 21.298075,
@@ -119,7 +119,20 @@ export const coordinates = {
   /*HOT Jan/20@8pmCST: Marble Bar, Australia*/
   latitude: -21.171422,
   longitude: 119.742776,
-
 };
 
-export const APIkey = "ad5625a093de3d7e472d2d1fd3d0e964";
+const APIkey = "ad5625a093de3d7e472d2d1fd3d0e964";
+
+/* const BASE_URL = import.meta.env.PROD */
+const BASE_URL = import.meta.env.PROD
+  ? "https://api.wtwr.flazzard.com"
+  : "http://localhost:3001";
+
+export {
+  weatherOptions,
+  defaultWeatherOptions,
+  defaultClothingItems,
+  coordinates,
+  APIkey,
+  BASE_URL,
+};

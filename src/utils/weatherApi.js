@@ -45,3 +45,6 @@ const getWeatherType = (temperature) => {
   };
   return weather;
 }; */
+
+
+

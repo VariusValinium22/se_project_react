@@ -26,6 +26,7 @@ import { register, login, checkToken } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
 
 function App() {
+  console.log(import.meta.env.PROD);
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
@@ -94,7 +95,7 @@ function App() {
       .then(() => closeActiveModal())
       .catch((error) => {
         console.error("Registration failed: ", error);
-        return Promise.reject(error); 
+        return Promise.reject(error);
       })
       .finally(() => {
         setIsLoading(false);
@@ -197,9 +198,8 @@ function App() {
     };
 
     const handleOverlay = (e) => {
-      if (e.target.classList.contains("modal"))
-        closeActiveModal();
-    }
+      if (e.target.classList.contains("modal")) closeActiveModal();
+    };
 
     document.addEventListener("keydown", handleEscClose);
     document.addEventListener("mousedown", handleOverlay);

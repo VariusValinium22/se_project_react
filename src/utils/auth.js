@@ -1,6 +1,6 @@
 import { handleRequest } from "./api";
+import { BASE_URL } from "../utils/constants";
 
-const BASE_URL = "http://localhost:3001";
 const headers = { "Content-Type": "application/json" };
 
 const register = (name, avatar, email, password) => {
@@ -32,3 +32,5 @@ const checkToken = (token) => {
 };
 
 export { register, login, checkToken };
+
+

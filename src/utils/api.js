@@ -1,14 +1,15 @@
-const baseUrl = "http://localhost:3001";
+import { BASE_URL } from "../utils/constants";
+
 const headers = { "Content-Type": "application/json" };
 
 const getClothingItems = () => {
-  return fetch(`${baseUrl}/items`, {
+  return fetch(`${BASE_URL}/items`, {
     headers,
   }).then(handleRequest);
 };
 
 const addClothingItem = (item, token) => {
-  return fetch(`${baseUrl}/items`, {
+  return fetch(`${BASE_URL}/items`, {
     method: "POST",
     headers: {
       ...headers,
@@ -19,7 +20,7 @@ const addClothingItem = (item, token) => {
 };
 
 const deleteClothingItem = (id, token) => {
-  return fetch(`${baseUrl}/items/${id}`, {
+  return fetch(`${BASE_URL}/items/${id}`, {
     method: "DELETE",
     headers: {
       ...headers,
@@ -29,7 +30,7 @@ const deleteClothingItem = (id, token) => {
 };
 
 const updateUserProfile = (userData, token) => {
-  return fetch(`${baseUrl}/users/me`, {
+  return fetch(`${BASE_URL}/users/me`, {
     method: "PATCH",
     headers: {
       ...headers,
@@ -40,7 +41,7 @@ const updateUserProfile = (userData, token) => {
 };
 
 const addCardLike = (id, token) => {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       ...headers,
@@ -50,14 +51,14 @@ const addCardLike = (id, token) => {
 };
 
 const removeCardLike = (id, token) => {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
-    method: "DELETE", 
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
+    method: "DELETE",
     headers: {
       ...headers,
       authorization: `Bearer ${token}`,
     },
   }).then(handleRequest);
-}
+};
 
 const handleRequest = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);

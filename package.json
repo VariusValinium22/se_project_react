@@ -2,13 +2,13 @@
   "name": "se_project_react",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://variusvalinium22.github.io/se_project_react/",
+  "homepage": "https//:api.wtwr.flazzard.com",
   "type": "module",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist && start https://variusvalinium22.github.io/se_project_react/",
+    "deploy": "npm run build && scp -r ./dist/* martingyoung22@wtwr.flazzard.com:/home/martingyoung22/frontend",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview --port 8080"
   },
