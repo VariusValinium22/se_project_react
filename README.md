@@ -39,3 +39,8 @@ PROD run: there is no way to run this project in prod yet...till deployed in goo
 
 THIS IS THE LINK TO THE BACKEND REPO!!!
 Backend Repo GitHub Page: https://github.com/VariusValinium22/se_project_express
+
+Domain Names:
+https://wtwr.flazzard.com
+https://www.wtwr.flazzard.com
+https://api.wtwr.flazzard.com

@@ -181,7 +181,7 @@ function App() {
           setCurrentUser(userData);
           setIsLoggedIn(true);
         })
-        .catch((error) => {
+        .catch(() => {
           localStorage.removeItem("jwt");
           setIsLoggedIn(false);
           setCurrentUser(null);
