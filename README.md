@@ -1,5 +1,10 @@
-This is the link to the backend GitHub [link](https://github.com/VariusValinium22/se_project_express):
+**This is the link to the backend GitHub** [link](https://github.com/VariusValinium22/se_project_express):
 
+**Link to the fully deployed app:** [https://wtwr.flazzard.com/](https://wtwr.flazzard.com/)
+
+**Backend GitHub Page:** [https://github.com/VariusValinium22/se_project_express](https://github.com/VariusValinium22/se_project_express)
+
+**Frontend GitHub Page:** [https://variusvalinium22.github.io/se_project_react/](https://variusvalinium22.github.io/se_project_react/)
 
 # React + Vite
 
@@ -23,22 +28,19 @@ This project is the frontEnd of the backEnd project: se_project_express
 Technologies: React.js; Vite.js; HTML/CSS; BEM/semantic tags;
 
 GitHub Page: [link](https://variusvalinium22.github.io/se_project_react/)
-Backend Repo GitHub Page: [link](https://github.com/VariusValinium22/se_project_express) 
+Backend Repo GitHub Page: [link](https://github.com/VariusValinium22/se_project_express)
 
 After building the backend project, we know have a mongodb attached that we can see items added through Postman and addItem button.
 
 LOCAL run: se_project_react: To run this project: npm run dev
-         se_project_express: also have to run this cmd to run nodemon app.js: npm run dev 
-            
+se_project_express: also have to run this cmd to run nodemon app.js: npm run dev
+
     make sure the location seeting is hot enough to display the mock data Postman renders.
-    make sure you have items in mongoDB now that it is set up 
+    make sure you have items in mongoDB now that it is set up
 
 PROD run: there is no way to run this project in prod yet...till deployed in google cloud
-    Sprint 14: connect both apps
-    Sprint 15: deploy both in google cloud for PROD 
-
-THIS IS THE LINK TO THE BACKEND REPO!!!
-Backend Repo GitHub Page: https://github.com/VariusValinium22/se_project_express
+Sprint 14: connect both apps
+Sprint 15: deploy both in google cloud for PROD
 
 Domain Names:
 https://wtwr.flazzard.com
