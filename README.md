@@ -32,15 +32,20 @@ Backend Repo GitHub Page: [link](https://github.com/VariusValinium22/se_project_
 
 After building the backend project, we know have a mongodb attached that we can see items added through Postman and addItem button.
 
-LOCAL run: se_project_react: To run this project: npm run dev
-se_project_express: also have to run this cmd to run nodemon app.js: npm run dev
+LOCAL run: 
+npm run dev (in BOTH the frontend and backend Terminals)
+    se_project_react:   To run this project: npm run dev
+    se_project_express: also have to run this cmd to run 'nodemon app.js': npm run dev
 
-    make sure the location seeting is hot enough to display the mock data Postman renders.
-    make sure you have items in mongoDB now that it is set up
+    make sure the location setting has a temperature that is 'hot' enough to display the mock data Postman renders.
+    make sure you have items in mongoDB now that it is set up locally.
 
-PROD run: there is no way to run this project in prod yet...till deployed in google cloud
-Sprint 14: connect both apps
-Sprint 15: deploy both in google cloud for PROD
+PROD run: 
+    deployed to Google Cloud VM 
+    just go to any of the Domain Names in a browser
+    NOTE: the Prod app in the VM is connected to the LOCAL MongoDB database in app.js file on the VM. This was done purposefully 
+        so to not get charged for renting a public MongoDB database. mongoose.connect("mongodb://127.0.0.1:27017/wtwr_db")
+
 
 Domain Names:
 https://wtwr.flazzard.com

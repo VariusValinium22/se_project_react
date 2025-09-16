@@ -24,7 +24,6 @@ const RegisterModal = ({
     }
 
     onRegister(name, avatar, email, password)
-      
       .then(() => setErrorMessage(""))
       .catch((error) => {
         console.error("Registration Error:", error);

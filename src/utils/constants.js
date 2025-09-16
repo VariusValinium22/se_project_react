@@ -108,8 +108,8 @@ const coordinates = {
   /*   latitude: -55.126163,
   longitude: -67.597523, */
   /*COLD: Yakutsk, Russia */
-  /*   latitude: 61.981701,
-  longitude: 129.80615, */
+    latitude: 61.981701,
+  longitude: 129.80615,
   /*HOT: Asuncion, Paraquay */
   /* latitude: -25.28646,
   longitude: -57.647, */
@@ -117,8 +117,8 @@ const coordinates = {
   /* latitude: 36.532265,
   longitude: -116.932541, */
   /*HOT Jan/20@8pmCST: Marble Bar, Australia*/
-  latitude: -21.171422,
-  longitude: 119.742776,
+  /* latitude: -21.171422,
+  longitude: 119.742776, */
 };
 
 const APIkey = "ad5625a093de3d7e472d2d1fd3d0e964";

@@ -39,6 +39,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  
   const openRegisterModal = () => setActiveModal("register");
   const openLoginModal = () => setActiveModal("login");
   const navigate = useNavigate();
