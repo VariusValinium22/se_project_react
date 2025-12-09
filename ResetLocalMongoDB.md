@@ -1,6 +1,11 @@
 ## Run the Project Locally:
+- Run both of the Projects:
+  - cd se_project_react
+  - npm run dev
+  - cd se_project_express
+  - npm run dev
 
-For some reason, the MongoDB Server got disconnected and I had to restart it. This led to me losing all the items and users I had created locally.
+For some reason, after not using the project for a while, the local MongoDB Server got disconnected and I had to restart it. This led to me losing all the items and users I had created locally.
 
 Restart the MongoDB:
 
