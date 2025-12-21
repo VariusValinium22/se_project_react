@@ -2,7 +2,9 @@
 
 **This is the link to the backend GitHub** [link](https://github.com/VariusValinium22/se_project_express):
 
-**Link to the fully deployed app:** [https://wtwr.flazzard.com/](https://wtwr.flazzard.com/)
+**Link to the fully deployed app:** ~~[https://wtwr.flazzard.com/](https://wtwr.flazzard.com/)~~  [https://wtwr.martinyoungproject.com/](https://wtwr.martinyoungproject.com/)
+
+**Deployment is NOW handled via Cloudflare Tunnel + PM2. No SCP deploy step is used.**
 
 **Backend GitHub Page:** [https://github.com/VariusValinium22/se_project_express](https://github.com/VariusValinium22/se_project_express)
 
@@ -49,6 +51,9 @@ NOTE: the Prod app in the VM is connected to the LOCAL MongoDB database in app.j
 so to not get charged for renting a public MongoDB database. mongoose.connect("mongodb://127.0.0.1:27017/wtwr_db")
 
 Domain Names:
-https://wtwr.flazzard.com
-https://www.wtwr.flazzard.com
-https://api.wtwr.flazzard.com
+- ~~`https://wtwr.flazzard.com`~~
+- ~~`https://www.wtwr.flazzard.com`~~
+- ~~`https://api.wtwr.flazzard.com`~~
+- `https://wtwr.martinyoungproject.com`
+- `https://apiwtwr.martinyoungproject.com`
+- NOTE: can not use deep domain hostnames on Cloudflare without paying an additional 10/mo for them!

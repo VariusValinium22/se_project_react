@@ -125,7 +125,7 @@ const APIkey = "ad5625a093de3d7e472d2d1fd3d0e964";
 
 /* const BASE_URL = import.meta.env.PROD */
 const BASE_URL = import.meta.env.PROD
-  ? "https://api.wtwr.flazzard.com"
+  ? "https://apiwtwr.martinyoungproject.com"
   : "http://localhost:3001";
 
 export {
