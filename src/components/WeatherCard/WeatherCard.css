@@ -62,7 +62,7 @@
   .weather-card__temp {
     top: 15px;
     left: 50%;
-    font-size: 26px;
+    font-size: 25px;
     line-height: 30px;
     transform: translateX(-50%);
   }
@@ -72,7 +72,7 @@
     left: 50%;
     right: auto;
     transform: translateX(-50%);
-    font-size: 22px;
+    font-size: 25px;
     line-height: 26px;
     max-width: calc(100% - 32px);
     overflow: hidden;
