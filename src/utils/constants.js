@@ -93,8 +93,8 @@ const defaultClothingItems = [
 
 const coordinates = {
   /* Los Angeles */
-  /* latitude: 34.052235,
-  longitude: -118.243683, */
+  latitude: 34.052235,
+  longitude: -118.243683,
   /* San Antonio */
   /*     latitude: 29.407780,
   longitude: -98.502582, */
@@ -108,8 +108,8 @@ const coordinates = {
   /*   latitude: -55.126163,
   longitude: -67.597523, */
   /*COLD: Yakutsk, Russia */
-    latitude: 61.981701,
-  longitude: 129.80615,
+    /* latitude: 61.981701,
+  longitude: 129.80615, */
   /*HOT: Asuncion, Paraquay */
   /* latitude: -25.28646,
   longitude: -57.647, */
